@@ -1,0 +1,21 @@
+import replit
+from game_data import data
+from art import logo
+from art import vs
+import random
+
+a = random.choice(data)
+b = random.choice(data)
+if a == b:
+  b = replit.clear()
+  b = random.choice(data)
+
+def format_data(account):
+  name = account["name"]
+  followers = account["follower_count"]
+  description = account["description"]
+  country = account["country"]
+  return f"{name}, a {description}, from {country}."
+
+print(format_data(a))
+print(format_data(b))
