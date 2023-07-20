@@ -1,0 +1,37 @@
+import random
+import replit
+from game_data import data
+from art import logo
+from art import vs
+
+A = random.choice(data)
+B = random.choice(data)
+if A == B:
+  B.clear()
+  B = (random.choice(data))
+A_follower_count = A["follower_count"]
+B_follower_count = B["follower_count"]
+
+#function to print A and B
+ 
+def play_game():
+  print(logo)
+  print(f"Compare A: {A['name']}, a {A['description']}, from {A['country']}")
+
+  print(vs)
+  
+  print(f"Against B: {B['name']}, a {B['description']}, from {B['country']}")
+  answer = input("Who has more followers, 'A' or 'B': ")
+  if answer == "A" and A_follower_count > B_follower_count:
+    print("You win!")
+  elif answer == "B" and A_follower_count < B_follower_count:
+    print(f"You win!")
+  else:
+    print("You lose!")
+
+while input("Do you want to continue? 'y' or 'n': ") == "y":
+  replit.clear()
+  play_game()
+
+else:
+  print("Thanks for playing")
